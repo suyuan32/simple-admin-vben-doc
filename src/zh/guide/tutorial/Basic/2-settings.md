@@ -41,8 +41,6 @@ console.log(import.meta.env.VITE_PROT);
 所有环境适用
 
 ```bash
-# 端口号
-VITE_PORT=3100
 # 网站标题
 VITE_GLOB_APP_TITLE=vben admin
 # 简称，用于配置文件名字 不要出现空格、数字开头等特殊字符
@@ -60,10 +58,6 @@ VITE_USE_MOCK=true
 VITE_PUBLIC_PATH=/
 # 是否删除Console.log
 VITE_DROP_CONSOLE=false
-# 本地开发代理，可以解决跨域及多地址代理
-# 如果接口地址匹配到，则会转发到http://localhost:3000，防止本地出现跨域问题
-# 可以有多个，注意多个不能换行，否则代理将会失效
-VITE_PROXY=[["/api","http://localhost:3000"],["api1","http://localhost:3001"],["/upload","http://localhost:3001/upload"]]
 # 接口地址
 # 如果没有跨域问题，直接在这里配置即可
 VITE_GLOB_API_URL=/api
@@ -75,7 +69,7 @@ VITE_GLOB_API_URL_PREFIX=
 
 ::: warning 注意
 
-这里配置的 `VITE_PROXY` 以及 `VITE_GLOB_API_URL`, /api 需要是唯一的，不要和接口有的名字冲突
+这里配置的 `VITE_GLOB_API_URL` /api 需要是唯一的，不要和 proxy 接口有的名字冲突
 
 如果你的接口是 `http://localhost:3000/api` 之类的，请考虑将 `VITE_GLOB_API_URL=/xxxx` 换成别的名字
 
@@ -114,7 +108,7 @@ VITE_LEGACY = false
 
 ### 说明
 
-当执行`yarn build`构建项目之后，会自动生成 `_app.config.js` 文件并插入 `index.html`。
+当执行`pnpm build`构建项目之后，会自动生成 `_app.config.js` 文件并插入 `index.html`。
 
 **注意: 开发环境不会生成**
 
@@ -394,7 +388,7 @@ export const localeList: DropMenu[] = [
 
 默认全局主题色配置位于 [build/config/glob/themeConfig.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/build/config/themeConfig.ts) 内
 
-只需要修改 primaryColor 为您需要的配色，然后重新执行 `yarn serve` 即可
+只需要修改 primaryColor 为您需要的配色，然后重新执行 `pnpm serve` 即可
 
 ```js
 /**

@@ -10,12 +10,24 @@ export const zhSidebar = sidebar({
         {
           text: "教程",
           prefix: "tutorial/",
-          children: "structure",
+          children: [
+            { text: "基础", prefix: "Basic/", children: "structure" },
+            { text: "进阶", prefix: "Advanced/", children: "structure" },
+            { text: "其他", prefix: "Other/", children: "structure" },
+          ],
         },
         {
           text: "组件",
           prefix: "components/",
-          children: "structure",
+          children: [
+            { text: "全局组件", prefix: "Global/", children: "structure" },
+            { text: "常用组件", prefix: "Common/", children: "structure" },
+            {
+              text: "函数式组件",
+              prefix: "Functional/",
+              children: "structure",
+            },
+          ],
         },
       ],
     },

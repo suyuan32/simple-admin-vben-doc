@@ -10,12 +10,24 @@ export const enSidebar = sidebar({
         {
           text: "Tutorial",
           prefix: "tutorial/",
-          children: "structure",
+          children: [
+            { text: "Basic", prefix: "Basic/", children: "structure" },
+            { text: "Advanced", prefix: "Advanced/", children: "structure" },
+            { text: "Other", prefix: "Other/", children: "structure" },
+          ],
         },
         {
           text: "Components",
           prefix: "components/",
-          children: "structure",
+          children: [
+            { text: "Global", prefix: "Global/", children: "structure" },
+            { text: "Common", prefix: "Common/", children: "structure" },
+            {
+              text: "Functional",
+              prefix: "Functional/",
+              children: "structure",
+            },
+          ],
         },
       ],
     },

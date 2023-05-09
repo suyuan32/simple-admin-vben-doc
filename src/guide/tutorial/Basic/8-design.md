@@ -49,24 +49,6 @@ The syntax is as follows.
 <div class="relative w-full h-full px-4"></div>
 ```
 
-## windicss (2.5.0 deprecated)
-
-[windicss](https://windicss.org/) is used in the project, please refer to the documentation for details.
-
-The syntax is as follows:
-
-```html
-<div class="relative w-full h-full px-4"></div>
-```
-
-::: danger precautions
-
-Windcss currently causes local development memory overflow, so you may consider switching to TailwindCss in the future, the two are basically the same.
-
-Therefore, use the new features of Windicss as little as possible to prevent subsequent switching costs.
-
-:::
-
 ## Why use Less
 
 The main reason is that Ant Design uses less as the style language by default, and using Less can be consistent with it.

@@ -14,7 +14,7 @@ Install `ant-design-vue`
 
 ```bash
 ## Enter the following command in the terminal to complete the installation
-yarn add ant-design-vue
+pnpm add ant-design-vue
 ```
 
 ## Use

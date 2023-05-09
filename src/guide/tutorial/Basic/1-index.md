@@ -23,9 +23,8 @@ You need to install [pnpm](https://pnpm.io/), [Node.js](http://nodejs.org/), and
 ::: warning Note
 
 - It is recommended to use [pnpm](https://pnpm.io/), otherwise the dependencies may not be installed.
-- [Node.js](http://nodejs.org/) version should be `12.x` or higher, and cannot be version `13.x`. It is recommended to use `14.x` or later.
-
-:::
+- [Node.js](http://nodejs.org/) version should be `18.x` or higher
+  :::
 
 ## Tool Configuration
 
@@ -34,7 +33,7 @@ If you are using [VS Code](https://code.visualstudio.com/) (recommended), you ca
 - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify icon plugin
 - [windicss IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - windicss suggestion plugin
 - [I18n-ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) - i18n plugin
-- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - essential for vue development (you can also choose Volar)
+- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) - vue3 support
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - script code check
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - code formatting
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css formatting
@@ -52,24 +51,14 @@ Make sure that the directory where you store the code and all of its parent dire
 
 ```bash
 # clone the code
-git clone https://github.com/vbenjs/vue-vben-admin.git
+git clone https://github.com/suyuan32/simple-admin-backend-ui.git
 ```
 
 ### Getting the Code from Gitee
 
-If cloning the code from GitHub is slow, you can try synchronizing the code to your own repository on [Gitee](https://gitee.com/annsion/vue-vben-admin) and then cloning it.
-
-You can also clone the code using the following command:
-
 ```bash
-git clone https://gitee.com/annsion/vue-vben-admin.git
+git clone https://gitee.com/hopefire/simple-admin-backend-ui.git
 ```
-
-::: warning Note
-
-The code on [Gitee](https://gitee.com/annsion/vue-vben-admin) may not be the latest.
-
-:::
 
 ## Installation
 
@@ -116,15 +105,7 @@ pnpm i
 
 Since imagemin is difficult to install in China, here are several solutions:
 
-1. Use `yarn` and configure it in `package.json` (recommended, already integrated into the project, requires using `yarn`)
-
-```json
-"resolutions": {
-  "bin-wrapper": "npm:bin-wrapper-china"
-}
-```
-
-2. Use `npm` and add the following configuration to your computer's `host` file:
+1. Use `npm` and add the following configuration to your computer's `host` file:
 
 ```bash
 199.232.4.133 raw.githubusercontent.com
@@ -198,56 +179,39 @@ You can now modify the code for business development. We have built-in mock data
 ## Directory description
 
 ```bash
-
-.
-├── build # Packaging script related
-│ ├── config # Configuration file
-│ ├── generate # Generator
-│ ├── script # Script
-│ └── vite # Vite configuration
-├── mock # Mock folder
-├── public # Public static resource directory
-├── src # Main directory
-│ ├── api # Interface file
-│ ├── assets # Resource file
-│ │ ├── icons # Icon sprite icon folder
-│ │ ├── images # The folder where the project stores pictures
-│ │ └── svg # The folder where the project stores svg images
-│ ├── components # Public components
-│ ├── design # Style file
-│ ├── directives # Instruction
-│ ├── enums # Enumeration/constant
-│ ├── hooks # Hook
-│ │ ├── component # Component-related hooks
-│ │ ├── core # Basic hook
-│ │ ├── event # Event related hook
-│ │ ├── setting # Configuration related hooks
-│ │ └── web # Web-related hooks
-│ ├── layouts # Layout file
-│ │ ├── default # Default layout
-│ │ ├── iframe # Iframe layout
-│ │ └── page # Page layout
-│ ├── locales # Multilingual
-│ ├── logics # Logic
-│ ├── main.ts # Main entry
-│ ├── router # Routing configuration
-│ ├── settings # Project configuration
-│ │ ├── componentSetting.ts # Component configuration
-│ │ ├── designSetting.ts # Style configuration
-│ │ ├── encryptionSetting.ts # Encryption configuration
-│ │ ├── localeSetting.ts # Multilingual configuration
-│ │ ├── projectSetting.ts # Project configuration
-│ │ └── siteSetting.ts # Site configuration
-│ ├── store # Data warehouse
-│ ├── utils # Tools
-│ └── views # Page
-├── test # Test
-│ └── server # The service used in the test
-│ ├── api # Test server
-│ ├── upload # Test upload server
-│ └── websocket # Test ws server
-├── types # Type file
-├── vite.config.ts # Vite configuration file
-└── windi.config.ts # Windcss configuration file
-
+├── apps
+├── deploy
+├── internal              # Internal configuration folder
+│   ├── eslint-config     # Eslint configuration
+│   ├── stylelint-config  # Stylelint configuration
+│   ├── ts-config         # Typescript configuration
+│   └── vite-config       # Vite configuration
+├── mock                  # Mock folder
+│   └── sys
+├── packages
+│   ├── hooks
+│   │   └── src
+│   └── types
+│       └── src
+├── public                # Publicly downloadable folder
+│   └── resource
+│       ├── img
+│       └── tinymce
+├── src
+│   ├── api              # API interface definition folder
+│   ├── assets           # Internal resource folder
+│   ├── components       # Components
+│   ├── design           # Design resource files
+│   ├── directives       # Directives
+│   ├── enums            # Enumerations
+│   ├── hooks            # Hooks
+│   ├── layouts          # Layout files
+│   ├── locales          # Multilingual support
+│   ├── logics           # Logic
+│   ├── router           # Router
+│   ├── settings         # Project settings
+│   ├── store            # Store storage
+│   ├── utils            # Utility classes
+│   └── views            # Pages
+└── types
 ```

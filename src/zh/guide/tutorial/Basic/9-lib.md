@@ -14,7 +14,7 @@ author: Ryan SU
 
 ```bash
 # 在终端输入下面的命令完成安装
-yarn add ant-design-vue
+pnpm add ant-design-vue
 ```
 
 ## 使用

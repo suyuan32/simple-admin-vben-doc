@@ -23,7 +23,7 @@ author: Ryan SU
 ::: warning 注意
 
 - 推荐使用[pnpm](https://pnpm.io/)，否则依赖可能安装不上。
-- [Node.js](http://nodejs.org/) 版本要求`12.x`以上，且不能为`13.x`版本，这里推荐 `14.x` 及以上。
+- [Node.js](http://nodejs.org/) 版本要求`18.x`以上。
 
 :::
 
@@ -34,7 +34,7 @@ author: Ryan SU
 - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Iconify 图标插件
 - [windicss IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense) - windicss 提示插件
 - [I18n-ally](https://marketplace.visualstudio.com/items?itemName=Lokalise.i18n-ally) - i18n 插件
-- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备 （也可以选择 Volar）
+- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) - vue 开发必备
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) - 脚本代码检查
 - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
 - [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化
@@ -52,25 +52,15 @@ author: Ryan SU
 
 ```bash
 # clone 代码
-git clone https://github.com/vbenjs/vue-vben-admin.git
+git clone https://github.com/suyuan32/simple-admin-backend-ui.git
 
 ```
 
 ### 从 Gitee 获取代码
 
-如果从 github clone 代码较慢的话，可以尝试用 [Gitee](https://gitee.com/annsion/vue-vben-admin) 同步代码到自己的仓库，再 clone 下来即可。
-
-也可以通过下方地址进行 clone
-
 ```bash
-git clone https://gitee.com/annsion/vue-vben-admin.git
+git clone https://gitee.com/hopefire/simple-admin-backend-ui.git
 ```
-
-::: warning 注意
-
-[Gitee](https://gitee.com/annsion/vue-vben-admin)的代码可能不是最新的
-
-:::
 
 ## 安装
 
@@ -118,15 +108,7 @@ pnpm i
 
 由于 imagemin 在国内安装困难，提供以下几个解决方案：
 
-1. 使用 yarn 在 package.json 内配置(推荐，项目内已集成，前提是必须使用 yarn)
-
-```json
-"resolutions": {
-  "bin-wrapper": "npm:bin-wrapper-china"
-}
-```
-
-2. 使用 npm，在电脑 host 文件加上如下配置即可
+1. 使用 npm，在电脑 host 文件加上如下配置即可
 
 ```bash
 199.232.4.133 raw.githubusercontent.com
@@ -200,56 +182,40 @@ pnpm i
 ## 目录说明
 
 ```bash
-
-.
-├── build # 打包脚本相关
-│   ├── config # 配置文件
-│   ├── generate # 生成器
-│   ├── script # 脚本
-│   └── vite # vite配置
-├── mock # mock文件夹
-├── public # 公共静态资源目录
-├── src # 主目录
-│   ├── api # 接口文件
-│   ├── assets # 资源文件
-│   │   ├── icons # icon sprite 图标文件夹
-│   │   ├── images # 项目存放图片的文件夹
-│   │   └── svg # 项目存放svg图片的文件夹
-│   ├── components # 公共组件
-│   ├── design # 样式文件
-│   ├── directives # 指令
-│   ├── enums # 枚举/常量
-│   ├── hooks # hook
-│   │   ├── component # 组件相关hook
-│   │   ├── core # 基础hook
-│   │   ├── event # 事件相关hook
-│   │   ├── setting # 配置相关hook
-│   │   └── web # web相关hook
-│   ├── layouts # 布局文件
-│   │   ├── default # 默认布局
-│   │   ├── iframe # iframe布局
-│   │   └── page # 页面布局
-│   ├── locales # 多语言
-│   ├── logics # 逻辑
-│   ├── main.ts # 主入口
-│   ├── router # 路由配置
-│   ├── settings # 项目配置
-│   │   ├── componentSetting.ts # 组件配置
-│   │   ├── designSetting.ts # 样式配置
-│   │   ├── encryptionSetting.ts # 加密配置
-│   │   ├── localeSetting.ts # 多语言配置
-│   │   ├── projectSetting.ts # 项目配置
-│   │   └── siteSetting.ts # 站点配置
-│   ├── store # 数据仓库
-│   ├── utils # 工具类
-│   └── views # 页面
-├── test # 测试
-│   └── server # 测试用到的服务
-│       ├── api # 测试服务器
-│       ├── upload # 测试上传服务器
-│       └── websocket # 测试ws服务器
-├── types # 类型文件
-├── vite.config.ts # vite配置文件
-└── windi.config.ts # windcss配置文件
+├── apps
+├── deploy
+├── internal              # 内部配置文件夹
+│   ├── eslint-config     # eslint 配置
+│   ├── stylelint-config  # stylelint 配置
+│   ├── ts-config         # typescript 配置
+│   └── vite-config       # vite 配置
+├── mock                  # mock 文件夹
+│   └── sys
+├── packages
+│   ├── hooks
+│   │   └── src
+│   └── types
+│       └── src
+├── public                # 公开下载的文件夹
+│   └── resource
+│       ├── img
+│       └── tinymce
+├── src
+│   ├── api              # api 接口定义文件夹
+│   ├── assets           # 内部资源文件夹
+│   ├── components       # 组件
+│   ├── design           # 设计资源文件
+│   ├── directives       # 指令
+│   ├── enums            # 枚举
+│   ├── hooks            # hook
+│   ├── layouts          # 布局文件
+│   ├── locales          # 多语言
+│   ├── logics           # 逻辑
+│   ├── router           # 路由
+│   ├── settings         # 项目配置
+│   ├── store            # 仓库存储
+│   ├── utils            # 工具类
+│   └── views            # 页面
+└── types
 
 ```

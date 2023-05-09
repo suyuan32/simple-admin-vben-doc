@@ -6,7 +6,7 @@ author: Ryan SU
 
 # Project Configuration
 
-Used to modify the project's color scheme, layout, caching, multi-language support, and default component configuration.
+Include color scheme, layout, caching, multi-language support, and default component configuration.
 
 ## Environment Variables Configuration
 
@@ -40,8 +40,6 @@ console.log(import.meta.env.VITE_PROT);
 Applicable to all environments
 
 ```bash
-# port
-VITE_PORT=3100
 # Website title
 VITE_GLOB_APP_TITLE=vben admin
 # Abbreviation, used to configure file names, no spaces, numbers, or other special characters at the beginning
@@ -59,10 +57,6 @@ VITE_USE_MOCK=true
 VITE_PUBLIC_PATH=/
 # Whether to delete Console.log
 VITE_DROP_CONSOLE=false
-# Local development proxy, can solve cross-domain and multi-address proxy
-# If the interface address matches, it will be forwarded to http://localhost:3000 to prevent cross-domain problems on the local side.
-# There can be multiple, and multiple cannot be separated by newlines, otherwise the proxy will fail.
-VITE_PROXY=[["/api","http://localhost:3000"],["api1","http://localhost:3001"],["/upload","http://localhost:3001/upload"]]
 # Interface address
 # If there is no cross-domain problem, you can configure it here.
 VITE_GLOB_API_URL=/api
@@ -74,7 +68,7 @@ VITE_GLOB_API_URL_PREFIX=
 
 ::: warning Note
 
-The `VITE_PROXY` and `VITE_GLOB_API_URL`, /api here must be unique and not conflict with the name of the interface.
+The `VITE_GLOB_API_URL`, /api here must be unique and not conflict with the name of the interface in proxy.
 
 If your interface is like `http://localhost:3000/api`, please consider changing `VITE_GLOB_API_URL=/xxxx` to another name.
 
@@ -113,7 +107,7 @@ VITE_LEGACY = false
 
 ### Description
 
-After executing `yarn build` to build the project, the `_app.config.js` file will be automatically generated and inserted into `index.html`.
+After executing `pnpm build` to build the project, the `_app.config.js` file will be automatically generated and inserted into `index.html`.
 
 **Note: It will not be generated in the development environment.**
 
@@ -335,7 +329,7 @@ const setting: ProjectConfig = {
 
 The default global theme color configuration is located in [build/config/glob/themeConfig.ts](https://github.com/vbenjs/vue-vben-admin/tree/main/build/config/themeConfig.ts)
 
-Just change primaryColor to the color you need and then re-run `yarn serve`
+Just change primaryColor to the color you need and then re-run `pnpm serve`
 
 ```js
 /**

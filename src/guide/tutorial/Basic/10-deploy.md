@@ -19,7 +19,7 @@ Of course, you can also use the streamlined version [vue-vben-admin-thin](https:
 After the project development is completed, execute the following command to build
 
 ```bash
-yarn build
+pnpm build
 ```
 
 After the build and packaging is successful, a dist folder will be generated in the root directory, which contains the built and packaged files.
@@ -44,16 +44,16 @@ Before publishing, you can preview it locally. There are many ways. Here are two
 
 ```bash
 # Preview after packaging first
-yarn preview
+pnpm preview
 # Directly preview the local dist file directory
-yarn preview:dist
+pnpm preview:dist
 ```
 
 - Local server preview (via live-server)
 
 ```bash
 # 1. Install live-server globally
-yarn global add live-server
+pnpm global add live-server
 # 2. Enter the packaged directory
 cd ./dist
 # Local preview, default port 8080
@@ -67,7 +67,7 @@ live-server --port 9000
 If your build file is very large, you can use the built-in [rollup-plugin-analyzer](https://github.com/doesdev/rollup-plugin-analyzer) plugin in the project to analyze the code size and optimize your code.
 
 ```bash
-yarn report
+pnpm report
 
 ```
 
