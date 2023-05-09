@@ -23,10 +23,10 @@ author: Ryan SU
 git clone https://github.com/vbenjs/vue-vben-admin-doc
 
 # 安装依赖
-yarn
+pnpm
 
 # 运行项目
-yarn dev
+pnpm dev
 ```
 
 ## 需要掌握的基础知识

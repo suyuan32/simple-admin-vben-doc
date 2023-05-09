@@ -79,9 +79,9 @@ export default defineComponent({
 
 ```bash
 
-yarn add @iconify/iconify
+pnpm add @iconify/iconify
 
-yarn add @iconify/json @purge-icons/generated -D
+pnpm add @iconify/json @purge-icons/generated -D
 
 ```
 
@@ -239,7 +239,7 @@ span.iconify {
 - 执行图标生成命令
 
 ```bash
-yarn gen:icon
+pnpm gen:icon
 ```
 
 - 这里会让你选择本地还是在线生成，两种方式各有利弊。如下图所示

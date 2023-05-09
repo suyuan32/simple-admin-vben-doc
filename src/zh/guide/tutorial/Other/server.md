@@ -14,10 +14,10 @@ author: Ryan SU
 cd ./test/server
 
 # 安装依赖
-yarn
+pnpm
 
 # 运行服务
-yarn start
+pnpm start
 
 ```
 

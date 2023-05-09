@@ -61,23 +61,15 @@ The menu must match the route to be displayed in the interface, so make sure the
 
 Since imagemin is difficult to install in China, here are a few solutions:
 
-1. use yarn to configure in package.json (recommended, integrated in the project, provided you use yarn)
-
-```json
-"solutions": {
-  "bin-wrapper": "npm:bin-wrapper-china"
-}
-```
-
-2. Using npm, add the following configuration to your computer host file
+1. Using npm, add the following configuration to your computer host file
 
 ```bash
 199.232.4.133 raw.githubusercontent.com
 ```
 
-## Failed to install imagemin dependency using yarn
+## Failed to install imagemin dependency using pnpm
 
-If you still can't install the dependency using yarn, you can remove the image compression feature by doing the following:
+If you still can't install the dependency using pnpm, you can remove the image compression feature by doing the following:
 
 - Remove the `vite-plugin-imagemin` dependency from `package.json`. This will cause the images to be uncompressed, but you can manually go to the online site to do so. Here we recommend [tinypng](https://tinypng.com/)
 - 2. Note `vite-plugin-imagemin` plugin reference
@@ -89,7 +81,7 @@ VITE_USE_IMAGEMIN && vitePlugins.push(configImageminPlugin()).
 
 ## Failed to install dependencies within Linux
 
-If you execute `yarn install` you will get the following error:
+If you execute `pnpm install` you will get the following error:
 
 ```bash
 gifsicle pre-build test failed
@@ -127,7 +119,7 @@ gpgcheck=0
 Create a new `Centos-Nasm.repo` under `/etc/yum.repos.d/`, copy the above content to this file
 
 2. Execute `yum install libtool automake autoconf nasm`
-3. Re-execute `yarn install`
+3. Re-execute `pnpm install`
 
 ## Local running error reporting
 
@@ -195,11 +187,11 @@ If there is a dependency installation error report, an error report at startup, 
 
 - Node version must be greater than `12.0.0`, `13` is not supported, version 14 is recommended.
 - Git
-- Yarn latest version
+- pnpm latest version
 
 ## Dependency installation problem
 
-- If the dependency cannot be installed or the startup error is reported, you can first try to delete `yarn.lock` and `node_modules`, and then run `yarn install` again
+- If the dependency cannot be installed or the startup error is reported, you can first try to delete `pnpm.lock` and `node_modules`, and then run `pnpm install` again
 - If the dependency cannot be installed or an error is reported, you can try to switch the phone hotspot to install the dependency.
 - If it still doesn't work, you can configure the domestic mirror installation by yourself.
 - You can also create a `.npmrc` file in the project root directory, the content is as follows
@@ -209,7 +201,7 @@ If there is a dependency installation error report, an error report at startup, 
 registry = https://registry.npm.taobao.org
 ```
 
-Then re-execute `yarn run reinstall` and wait for the installation to complete
+Then re-execute `pnpm run reinstall` and wait for the installation to complete
 
 ## How to ensure that my code can be updated to the latest code
 

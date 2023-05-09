@@ -122,7 +122,7 @@ Please check if your source code is downloaded directly from GitHub. Direct down
 ```bash
 "scripts": {
   # install dependencies
-  "bootstrap": "yarn install",
+  "bootstrap": "pnpm install",
   # run the project
   "serve": "npm run dev",
   # run the project
@@ -130,7 +130,7 @@ Please check if your source code is downloaded directly from GitHub. Direct down
   # build the project
   "build": "vite build && esno ./build/script/postBuild.ts",
   # build the project after clearing the cache
-  "build:no-cache": "yarn clean:cache && npm run build",
+  "build:no-cache": "pnpm clean:cache && npm run build",
   # generate a bundle analysis. On Mac OS computers, the interface will automatically open after execution. On Windows computers, you need to open `./build/.cache/stats.html` to view it.
   "report": "cross-env REPORT=true npm run build",
   # type checking
@@ -158,7 +158,7 @@ Please check if your source code is downloaded directly from GitHub. Direct down
   # test brotli compression on the packaged directory
   "test:br": "http-server dist --cors --brotli -c-1",
   # reinstall dependencies, see instructions below
-  "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
+  "reinstall": "rimraf pnpm.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
   "install:husky": "is-ci || husky install",
   # generate icon set, see instructions below
   "gen:icon": "esno ./build/generate/icon/index.ts",
@@ -172,7 +172,7 @@ This command generates the selected icon set, which is provided to the icon sele
 
 ### Reinstalling Dependencies
 
-This command will first delete `node_modules`, `yarn.lock`, and `package.lock.json` before reinstalling dependencies (the installation speed will be significantly slower).
+This command will first delete `node_modules`, `pnpm.lock`, and `package.lock.json` before reinstalling dependencies (the installation speed will be significantly slower).
 
 You can now modify the code for business development. We have built-in mock data, HMR real-time preview, state management, internationalization, global routing, and many other useful features to assist development. Please read other sections for more information.
 

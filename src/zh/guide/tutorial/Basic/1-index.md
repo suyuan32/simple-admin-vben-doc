@@ -89,7 +89,7 @@ node -v
 如果未安装`pnpm`，可以用下面命令来进行全局安装
 
 ```bash
-# 全局安装yarn
+# 全局安装pnpm
 npm install -g pnpm
 # 验证
 pnpm -v # 出现对应版本号即代表安装成功
@@ -125,7 +125,7 @@ pnpm i
 ```bash
 "scripts": {
   # 安装依赖
-  "bootstrap": "yarn install",
+  "bootstrap": "pnpm install",
   # 运行项目
   "serve": "npm run dev",
   # 运行项目
@@ -133,7 +133,7 @@ pnpm i
   # 构建项目
   "build": "vite build && esno ./build/script/postBuild.ts",
   # 清空缓存后构建项目
-  "build:no-cache": "yarn clean:cache && npm run build",
+  "build:no-cache": "pnpm clean:cache && npm run build",
   # 生成打包分析，在 `Mac OS` 电脑上执行完成后会自动打开界面，在 `Window` 电脑上执行完成后需要打开 `./build/.cache/stats.html` 查看
   "report": "cross-env REPORT=true npm run build",
   # 类型检查
@@ -161,7 +161,7 @@ pnpm i
   # 对打包目录进行 brotli 测试
   "test:br": "http-server dist --cors --brotli -c-1",
   # 重新安装依赖，见下方说明
-  "reinstall": "rimraf yarn.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
+  "reinstall": "rimraf pnpm.lock && rimraf package.lock.json && rimraf node_modules && npm run bootstrap",
   "install:husky": "is-ci || husky install",
   # 生成图标集，见下方说明
   "gen:icon": "esno ./build/generate/icon/index.ts",
@@ -175,7 +175,7 @@ pnpm i
 
 ### 重新安装依赖
 
-该命令会先删除 `node_modules`、`yarn.lock`、`package.lock.json` 后再进行依赖重新安装（安装速度会明显变慢）。
+该命令会先删除 `node_modules`、`pnpm.lock`、`package.lock.json` 后再进行依赖重新安装（安装速度会明显变慢）。
 
 接下来你可以修改代码进行业务开发了。我们内建了模拟数据、HMR 实时预览、状态管理、国际化、全局路由等各种实用的功能辅助开发，请阅读其他章节了解更多。
 

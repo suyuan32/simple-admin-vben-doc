@@ -22,7 +22,7 @@ git clone -b electron-main https://github.com/vbenjs/vue-vben-admin vben-admin-e
 ### Install dependencies
 
 ```bash
-yarn
+pnpm
 ```
 
 ::: tip
@@ -38,13 +38,13 @@ ELETRON_MIRROR=https://npm.taobao.org/mirrors/electron/
 ### Rrun
 
 ```bash
-yarn dev:app
+pnpm dev:app
 ```
 
 ### Pack
 
 ```bash
-yarn build:app
+pnpm build:app
 ```
 
 ## Standard mode

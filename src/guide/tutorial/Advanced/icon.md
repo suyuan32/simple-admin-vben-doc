@@ -79,9 +79,9 @@ The plugin used in the project is [vite-plugin-purge-icons](https://github.com/a
 
 ```bash
 
-yarn add @iconify/iconify
+pnpm add @iconify/iconify
 
-yarn add @iconify/json @purge-icons/generated -D
+pnpm add @iconify/json @purge-icons/generated -D
 
 ```
 
@@ -239,7 +239,7 @@ Due to the special existence of the icon selector, the project will package some
 - Execute the icon generation command
 
 ```bash
-yarn gen:icon
+pnpm gen:icon
 ```
 
 - Here you will be asked to choose whether to generate locally or online. Both methods have their advantages and disadvantages. As shown below

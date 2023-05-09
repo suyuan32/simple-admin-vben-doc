@@ -44,7 +44,7 @@ ESLint is a code specification and error checking tool with the following featur
 
 ```bash
 # Execute the following code. Those that can be repaired will be automatically repaired, and those that cannot be repaired need to be manually modified.
-yarn run lint:eslint
+pnpm run lint:eslint
 ```
 
 ### Configuration items
@@ -150,7 +150,7 @@ The project defines corresponding hooks in `.husky`.
 
 ```bash
 # Remove husky dependency
-yarn remove huksy
+pnpm remove huksy
 
 ```
 

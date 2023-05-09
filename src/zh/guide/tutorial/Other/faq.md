@@ -59,23 +59,15 @@ You are using a whole package of antd, please use https://www.npmjs.com/package/
 
 由于 imagemin 在国内安装困难，提供以下几个解决方案：
 
-1. 使用 yarn 在 package.json 内配置（推荐，项目内已集成，前提是必须使用 yarn）
-
-```json
-"resolutions": {
-  "bin-wrapper": "npm:bin-wrapper-china"
-}
-```
-
-2. 使用 npm,在电脑 host 文件加上如下配置即可
+1. 使用 npm,在电脑 host 文件加上如下配置即可
 
 ```bash
 199.232.4.133 raw.githubusercontent.com
 ```
 
-## 使用 yarn 安装 imagemin 依赖安装失败
+## 使用 pnpm 安装 imagemin 依赖安装失败
 
-如果使用 yarn 还是不能安装依赖，可以将图片压缩功能移除，移除方法如下：
+如果使用 pnpm 还是不能安装依赖，可以将图片压缩功能移除，移除方法如下：
 
 - 在 `package.json` 内删除 `vite-plugin-imagemin` 这个依赖。这会导致图片没有压缩，但是可以手动到在线网站进行压缩。这里推荐[tinypng](https://tinypng.com/)
 - 2. 注释 `vite-plugin-imagemin` 插件引用
@@ -87,7 +79,7 @@ VITE_USE_IMAGEMIN && vitePlugins.push(configImageminPlugin());
 
 ## 在 Linux 内依赖安装失败
 
-如果执行 `yarn install` 会出现以下错误：
+如果执行 `pnpm install` 会出现以下错误：
 
 ```bash
 gifsicle pre-build test failed
@@ -125,7 +117,7 @@ gpgcheck=0
 在 `/etc/yum.repos.d/` 下新建 `Centos-Nasm.repo`，将以上内容复制到这个文件即可
 
 2. 执行 `yum install libtool automake autoconf nasm`
-3. 重新执行 `yarn install` 即可
+3. 重新执行 `pnpm install` 即可
 
 ## 本地运行报错
 
@@ -193,11 +185,11 @@ getCurrentInstance().ctx.xxxx;
 
 - Node 版本必须大于`12.0.0`不支持 `13`， 推荐 14 版本。
 - Git
-- Yarn 最新版
+- pnpm 最新版
 
 ## 依赖安装问题
 
-- 如果依赖安装不了或者启动报错可以先尝试 删除 `yarn.lock` 和 `node_modules`，然后重新运行 `yarn install`
+- 如果依赖安装不了或者启动报错可以先尝试 删除 `pnpm.lock` 和 `node_modules`，然后重新运行 `pnpm install`
 - 如果依赖安装不了或者报错，可以尝试切换手机热点来进行依赖安装。
 - 如果还是不行，可以自行配置国内镜像安装。
 - 也可以在项目根目录创建 `.npmrc` 文件，内容如下
@@ -207,7 +199,7 @@ getCurrentInstance().ctx.xxxx;
 registry = https://registry.npm.taobao.org
 ```
 
-然后重新执行`yarn run reinstall`等待安装完成即可
+然后重新执行`pnpm run reinstall`等待安装完成即可
 
 ## 如何保证我的代码能更新到最新代码
 

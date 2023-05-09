@@ -14,10 +14,10 @@ There is a simple Node.js test background interface service in the project `/tes
 cd ./test/server
 
 # install dependencies
-yarn
+pnpm
 
 # run the service
-yarn start
+pnpm start
 
 ```
 
