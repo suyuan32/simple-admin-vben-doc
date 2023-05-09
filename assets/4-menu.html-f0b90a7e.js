@@ -1,0 +1,59 @@
+import{_ as t,W as o,X as p,Y as s,$ as n,Z as e,a1 as i,D as c}from"./framework-4a45a4a9.js";const l={},u=s("h1",{id:"menu",tabindex:"-1"},[s("a",{class:"header-anchor",href:"#menu","aria-hidden":"true"},"#"),n(" Menu")],-1),r={href:"https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/menus",target:"_blank",rel:"noopener noreferrer"},d=i(`<div class="hint-container tip"><p class="hint-container-title">Tip</p><p>The menu must match the route to be displayed</p></div><h2 id="menu-item-types" tabindex="-1"><a class="header-anchor" href="#menu-item-types" aria-hidden="true">#</a> Menu Item Types</h2><div class="language-typescript line-numbers-mode" data-ext="ts"><pre class="language-typescript"><code><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">Menu</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Menu name</span>
+  name<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  <span class="token comment">// Menu icon, if not, will try to use route.meta.icon</span>
+  icon<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  <span class="token comment">// Menu path</span>
+  path<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  <span class="token comment">// Whether to disable</span>
+  disabled<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+  <span class="token comment">// Submenu</span>
+  children<span class="token operator">?</span><span class="token operator">:</span> Menu<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token comment">// Menu tag settings</span>
+  tag<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// If true, a small dot is displayed</span>
+    dot<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+    <span class="token comment">// Content</span>
+    content<span class="token operator">:</span> <span class="token builtin">string</span>&#39;<span class="token punctuation">;</span>
+    <span class="token comment">// Type</span>
+    type<span class="token operator">:</span> <span class="token string">&#39;error&#39;</span> <span class="token operator">|</span> <span class="token string">&#39;primary&#39;</span> <span class="token operator">|</span> <span class="token string">&#39;warn&#39;</span> <span class="token operator">|</span> <span class="token string">&#39;success&#39;</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token comment">// Whether to hide the menu</span>
+  hideMenu<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="menu-module" tabindex="-1"><a class="header-anchor" href="#menu-module" aria-hidden="true">#</a> Menu Module</h2><p>A menu file will be treated as a module</p><div class="hint-container tip"><p class="hint-container-title">Tip</p><p>The <code>path</code> field of <code>children</code> does not need to start with <code>/</code></p></div><div class="language-typescript line-numbers-mode" data-ext="ts"><pre class="language-typescript"><code><span class="token keyword">import</span> <span class="token keyword">type</span> <span class="token punctuation">{</span> MenuModule <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;/@/router/types&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> t <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;/@/hooks/web/useI18n&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> menu<span class="token operator">:</span> MenuModule <span class="token operator">=</span> <span class="token punctuation">{</span>
+  orderNo<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+  menu<span class="token operator">:</span> <span class="token punctuation">{</span>
+    name<span class="token operator">:</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token string">&quot;routes.dashboard.dashboard&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    path<span class="token operator">:</span> <span class="token string">&quot;/dashboard&quot;</span><span class="token punctuation">,</span>
+
+    children<span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;analysis&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token string">&quot;routes.dashboard.analysis&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">{</span>
+        path<span class="token operator">:</span> <span class="token string">&quot;workbench&quot;</span><span class="token punctuation">,</span>
+        name<span class="token operator">:</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token string">&quot;routes.dashboard.workbench&quot;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> menu<span class="token punctuation">;</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>The above module will be transformed into the following structure</p><div class="language-typescript line-numbers-mode" data-ext="ts"><pre class="language-typescript"><code><span class="token punctuation">[</span>
+  path<span class="token operator">:</span> <span class="token string">&#39;/dashboard&#39;</span><span class="token punctuation">,</span>
+  name<span class="token operator">:</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token string">&#39;routes.dashboard.dashboard&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  children<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">&#39;dashboard/analysis&#39;</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token string">&#39;routes.dashboard.analysis&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">{</span>
+      path<span class="token operator">:</span> <span class="token string">&#39;dashboard/workbench&#39;</span><span class="token punctuation">,</span>
+      name<span class="token operator">:</span> <span class="token function">t</span><span class="token punctuation">(</span><span class="token string">&#39;routes.dashboard.workbench&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="add-menu" tabindex="-1"><a class="header-anchor" href="#add-menu" aria-hidden="true">#</a> Add Menu</h2>`,10),k={href:"https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes/modules",target:"_blank",rel:"noopener noreferrer"},m={href:"https://github.com/vbenjs/vue-vben-admin/tree/main/src/router/routes/modules",target:"_blank",rel:"noopener noreferrer"},v=s("h2",{id:"menu-sorting",tabindex:"-1"},[s("a",{class:"header-anchor",href:"#menu-sorting","aria-hidden":"true"},"#"),n(" Menu Sorting")],-1),b=s("p",null,[n("In the menu module, set the "),s("code",null,"orderNo"),n(" variable, the larger the value, the later the sorting.")],-1);function h(g,f){const a=c("ExternalLinkIcon");return o(),p("div",null,[u,s("p",null,[n("The project menu configuration is stored in "),s("a",r,[n("src/router/menus"),e(a)])]),d,s("p",null,[n("Just add a new module file in "),s("a",k,[n("src/router/routes/modules"),e(a)]),n(".")]),s("p",null,[n("No need to manually import, files placed in "),s("a",m,[n("src/router/routes/modules"),e(a)]),n(" will be automatically loaded.")]),v,b])}const _=t(l,[["render",h],["__file","4-menu.html.vue"]]);export{_ as default};

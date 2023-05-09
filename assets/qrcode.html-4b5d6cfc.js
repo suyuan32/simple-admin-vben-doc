@@ -1,0 +1,88 @@
+import{_ as t,W as e,X as p,Y as s,$ as n,Z as o,a1 as c,D as l}from"./framework-4a45a4a9.js";const i={},u=c(`<h1 id="qrcode" tabindex="-1"><a class="header-anchor" href="#qrcode" aria-hidden="true">#</a> QrCode</h1><p>用于生成二维码的组件</p><h2 id="usage" tabindex="-1"><a class="header-anchor" href="#usage" aria-hidden="true">#</a> Usage</h2><div class="language-vue line-numbers-mode" data-ext="vue"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>QrCode</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrCodeUrl<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>ts<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">import</span> <span class="token punctuation">{</span> defineComponent<span class="token punctuation">,</span> ref<span class="token punctuation">,</span> unref <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;vue&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> QrCode<span class="token punctuation">,</span> QrCodeActionType <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&quot;/@/components/Qrcode/index&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> LogoImg <span class="token keyword">from</span> <span class="token string">&quot;/@/assets/images/logo.png&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> qrCodeUrl <span class="token operator">=</span> <span class="token string">&quot;https://www.vvbin.cn&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token function">defineComponent</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">components</span><span class="token operator">:</span> <span class="token punctuation">{</span> QrCode <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> qrRef <span class="token operator">=</span> ref<span class="token operator">&lt;</span>Nullable<span class="token operator">&lt;</span>QrCodeActionType<span class="token operator">&gt;&gt;</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">function</span> <span class="token function">download</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> qrEl <span class="token operator">=</span> <span class="token function">unref</span><span class="token punctuation">(</span>qrRef<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>qrEl<span class="token punctuation">)</span> <span class="token keyword">return</span><span class="token punctuation">;</span>
+      qrEl<span class="token punctuation">.</span><span class="token function">download</span><span class="token punctuation">(</span><span class="token string">&quot;文件名&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      qrCodeUrl<span class="token punctuation">,</span>
+      LogoImg<span class="token punctuation">,</span>
+      download<span class="token punctuation">,</span>
+      qrRef<span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
+<span class="token selector">.qrcode-demo-item</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 30%<span class="token punctuation">;</span>
+  <span class="token property">margin-right</span><span class="token punctuation">:</span> 1%<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="props" tabindex="-1"><a class="header-anchor" href="#props" aria-hidden="true">#</a> Props</h2><table><thead><tr><th>属性</th><th>类型</th><th>默认值</th><th>可选值</th><th>说明</th></tr></thead><tbody><tr><td>value</td><td><code>string</code></td><td>-</td><td>-</td><td>二维码地址</td></tr><tr><td>options</td><td><code>QRCodeRenderersOptions</code></td><td>-</td><td>-</td><td>二维码配置 ,见 QRCodeRenderersOptions</td></tr><tr><td>width</td><td><code>number</code></td><td>2</td><td>-</td><td>宽度</td></tr><tr><td>logo</td><td><code>string｜LogoType</code></td><td>-</td><td>-</td><td>中间 logo 配置，见 LogoType</td></tr><tr><td>tag</td><td><code>渲染标签</code></td><td>canvas</td><td><code>canvas | img</code></td><td>img 不支持内嵌 logo</td></tr></tbody></table><p><strong>QRCodeRenderersOptions</strong></p><div class="language-typescript line-numbers-mode" data-ext="ts"><pre class="language-typescript"><code><span class="token doc-comment comment">/**
+ * 定义margin的宽度。.
+ * Default: 4
+ */</span>
+margin<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+<span class="token doc-comment comment">/**
+ * 比例因子。值1表示每个模块1像素（黑点）。
+ * Default: 4
+ */</span>
+scale<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+<span class="token doc-comment comment">/**
+ * 为输出图像强制指定宽度。
+ * 如果宽度太小而不能包含qr符号，则此选项将被忽略。
+ * 优先于规模。
+ */</span>
+width<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+color<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token doc-comment comment">/**
+   * 暗模块的颜色。值必须为十六进制格式（RGBA）.
+   * 注意：深色应始终比color.light暗。.
+   * Default: #000000ff
+   */</span>
+  dark<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+  <span class="token doc-comment comment">/**
+   * 照明模块的颜色。值必须为十六进制格式（RGBA）.
+   * Default: #ffffffff
+   */</span>
+  light<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>LogoType</strong></p><div class="language-javascript line-numbers-mode" data-ext="js"><pre class="language-javascript"><code><span class="token punctuation">{</span>
+  <span class="token comment">// logo图片</span>
+  <span class="token literal-property property">src</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token comment">// logo大小</span>
+  <span class="token literal-property property">logoSize</span><span class="token operator">:</span> number<span class="token punctuation">;</span>
+  <span class="token comment">// 背景颜色</span>
+  <span class="token literal-property property">bgColor</span><span class="token operator">:</span> string<span class="token punctuation">;</span>
+  <span class="token comment">// logo圆角</span>
+  <span class="token literal-property property">logoRadius</span><span class="token operator">:</span> number<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="methods" tabindex="-1"><a class="header-anchor" href="#methods" aria-hidden="true">#</a> Methods</h2><table><thead><tr><th>名称</th><th>回调参数</th><th>说明</th></tr></thead><tbody><tr><td>download</td><td><code>Function(fileName:string)</code></td><td>下载</td></tr></tbody></table><h2 id="事件" tabindex="-1"><a class="header-anchor" href="#事件" aria-hidden="true">#</a> 事件</h2><table><thead><tr><th>名称</th><th>回调参数</th><th>说明</th></tr></thead><tbody><tr><td>done</td><td><code>(data: QrcodeDoneEventParams)=&gt;void</code></td><td>绘制完成</td></tr><tr><td>error</td><td><code>(error)=&gt;void</code></td><td>生成二维码时发生错误</td></tr></tbody></table><p>QrcodeDoneEventParams</p><div class="language-javascript line-numbers-mode" data-ext="js"><pre class="language-javascript"><code><span class="token punctuation">{</span>
+  <span class="token literal-property property">url</span><span class="token operator">:</span> string<span class="token punctuation">;</span>  <span class="token comment">// 二维码DataURL数据</span>
+  ctx<span class="token operator">?</span><span class="token operator">:</span> CanvasRenderingContext2D<span class="token punctuation">;</span>  <span class="token comment">// 该对象为画布的2D渲染上下文，仅在tag为canvas时有效，可用于自定义绘制</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><code>done</code> 事件回调中可以对二维码进行自定义的绘制，示例代码如下：</p><div class="language-vue line-numbers-mode" data-ext="vue"><pre class="language-vue"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>QrCode</span> <span class="token attr-name">:value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>qrCodeUrl<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>200<span class="token punctuation">&quot;</span></span> <span class="token attr-name">@done</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">&quot;</span>onQrcodeDone<span class="token punctuation">&quot;</span></span> <span class="token punctuation">/&gt;</span></span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div></div></div><div class="language-javascript line-numbers-mode" data-ext="js"><pre class="language-javascript"><code><span class="token keyword">function</span> <span class="token function">onQrcodeDone</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> ctx <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>ctx <span class="token keyword">instanceof</span> <span class="token class-name">CanvasRenderingContext2D</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 额外绘制</span>
+    ctx<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token string">&quot;black&quot;</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>font <span class="token operator">=</span> <span class="token string">&#39;16px &quot;微软雅黑&quot;&#39;</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>textBaseline <span class="token operator">=</span> <span class="token string">&quot;bottom&quot;</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span>textAlign <span class="token operator">=</span> <span class="token string">&quot;center&quot;</span><span class="token punctuation">;</span>
+    ctx<span class="token punctuation">.</span><span class="token function">fillText</span><span class="token punctuation">(</span><span class="token string">&quot;你帅你先扫&quot;</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">195</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div>`,19),d=s("code",null,"CanvasRenderingContext2D",-1),r={href:"https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D",target:"_blank",rel:"noopener noreferrer"};function k(v,m){const a=l("ExternalLinkIcon");return e(),p("div",null,[u,s("p",null,[n("有关 "),d,n(" 的更多资料以及绘制方法，请参考"),s("a",r,[n("MDN"),o(a)])])])}const g=t(i,[["render",k],["__file","qrcode.html.vue"]]);export{g as default};
