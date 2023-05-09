@@ -20,9 +20,10 @@ author: Ryan SU
     <BasicTitle :helpMessage="['提示1', '提示2']">标题</BasicTitle>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { BasicTitle } from "/@/components/Basic/index";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { BasicTitle },
 });
@@ -55,9 +56,10 @@ export default defineComponent({
     <BasicArrow :expand="false" />
   </div>
 </template>
-<script>
+<script lang="ts">
 import { BasicArrow } from "/@/components/Basic/index";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { BasicArrow },
 });
@@ -86,9 +88,10 @@ export default defineComponent({
     <BasicHelp text="提示" />
   </div>
 </template>
-<script>
+<script lang="ts">
 import { BasicHelp } from "/@/components/Basic/index";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { BasicHelp },
 });

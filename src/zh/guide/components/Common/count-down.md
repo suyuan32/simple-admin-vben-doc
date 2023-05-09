@@ -15,14 +15,14 @@ author: Ryan SU
 
 ```vue
 <template>
-  <CountButton />
+  <CountdownInput />
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { CountButton } from "/@/components/CountDown";
+import { CountdownInput } from "/@/components/CountDown";
 
 export default defineComponent({
-  components: { CountButton },
+  components: { CountdownInput },
 });
 </script>
 ```

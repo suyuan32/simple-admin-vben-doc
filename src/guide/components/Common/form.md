@@ -29,8 +29,8 @@ Here is an example using a simple form with only one input field
 <script lang="ts">
 import { defineComponent } from "vue";
 import { BasicForm, FormSchema } from "/@/components/Form";
-import { CollapseContainer } from "/@/components/Container";
 import { useMessage } from "/@/hooks/web/useMessage";
+
 const schemas: FormSchema[] = [
   {
     field: "field",
@@ -50,7 +50,7 @@ const schemas: FormSchema[] = [
 ];
 
 export default defineComponent({
-  components: { BasicForm, CollapseContainer },
+  components: { BasicForm },
   setup() {
     const { createMessage } = useMessage();
     return {
@@ -71,37 +71,40 @@ See `Methods` description below for all callable functions
 ```vue
 <template>
   <div class="m-4">
-      <BasicForm
-        :schemas="schemas"
-        ref="formElRef"
-        :labelWidth="100"
-        @submit="handleSubmit"
-        :actionColOptions="{ span: 24 }"
-      />
-  <div>
+    <BasicForm
+      :schemas="schemas"
+      ref="formElRef"
+      :labelWidth="100"
+      :actionColOptions="{ span: 24 }"
+    />
+  </div>
 </template>
 <script lang="ts">
-  import { defineComponent, ref } from 'vue';
-  import { BasicForm, FormSchema, FormActionType, FormProps } from '/@/components/Form';
-  import { CollapseContainer } from '/@/components/Container';
-  const schemas: FormSchema[] = [
-  ];
+import { defineComponent, ref } from "vue";
+import {
+  BasicForm,
+  FormSchema,
+  FormActionType,
+  FormProps,
+} from "/@/components/Form";
 
-  export default defineComponent({
-    components: { BasicForm, CollapseContainer },
-    setup() {
-      const formElRef = ref<Nullable<FormActionType>>(null);
-      return {
-        formElRef,
-        schemas,
-        setProps(props: FormProps) {
-          const formEl = formElRef.value;
-          if (!formEl) return;
-          formEl.setProps(props);
-        },
-      };
-    },
-  });
+const schemas: FormSchema[] = [];
+
+export default defineComponent({
+  components: { BasicForm },
+  setup() {
+    const formElRef = ref<Nullable<FormActionType>>(null);
+    return {
+      formElRef,
+      schemas,
+      setProps(props: FormProps) {
+        const formEl = formElRef.value;
+        if (!formEl) return;
+        formEl.setProps(props);
+      },
+    };
+  },
+});
 </script>
 ```
 
@@ -118,8 +121,8 @@ The form component also provides `useForm`, which is convenient to call the inte
 <script lang="ts">
 import { defineComponent } from "vue";
 import { BasicForm, FormSchema, useForm } from "/@/components/Form/index";
-import { CollapseContainer } from "/@/components/Container/index";
 import { useMessage } from "/@/hooks/web/useMessage";
+
 const schemas: FormSchema[] = [
   {
     field: "field1",
@@ -138,7 +141,7 @@ const schemas: FormSchema[] = [
 ];
 
 export default defineComponent({
-  components: { BasicForm, CollapseContainer },
+  components: { BasicForm },
   setup() {
     const { createMessage } = useMessage();
     const [register, { setProps }] = useForm({
@@ -177,13 +180,20 @@ register is used to register `useForm`, if you need to use the api provided by `
 <template>
   <BasicForm @register="register" @submit="handleSubmit" />
 </template>
-<script>
+<script lang="ts">
+import { defineComponent } from "vue";
+import { BasicForm, useForm } from "/@/components/Form";
+
 export default defineComponent({
   components: { BasicForm },
   setup() {
     const [register] = useForm();
+    function handleSubmit() {
+      console.log("submit");
+    }
     return {
       register,
+      handleSubmit,
     };
   },
 });
@@ -557,6 +567,7 @@ import { defineComponent, h } from "vue";
 import { BasicForm, FormSchema, useForm } from "/@/components/Form/index";
 import { useMessage } from "/@/hooks/web/useMessage";
 import { Input } from "ant-design-vue";
+
 const schemas: FormSchema[] = [
   {
     field: "field1",
@@ -570,7 +581,7 @@ const schemas: FormSchema[] = [
       return h(Input, {
         placeholder: "请输入",
         value: model[field],
-        onChange: (e: ChangeEvent) => {
+        onChange: (e) => {
           model[field] = e.target.value;
         },
       });
@@ -636,12 +647,13 @@ When using slots to customize form fields, please pay attention to antdv's [rela
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "compatible-vue";
+import { defineComponent } from "vue";
 import { BasicForm, useForm } from "@/components/Form/index";
-import { BasicModal } from "@/components/modal/index";
+
 export default defineComponent({
   name: "FormDemo",
-  setup(props) {
+  components: { BasicForm },
+  setup() {
     const [register] = useForm({
       labelWidth: 100,
       actionColOptions: {
@@ -649,9 +661,10 @@ export default defineComponent({
       },
       schemas: [
         {
-          field: "field1",
-          label: "字段1",
-          slot: "customSlot",
+          field: "id",
+          label: "ID",
+          component: "Input",
+          show: true,
         },
       ],
     });
@@ -676,6 +689,7 @@ Custom display/disable
 <script lang="ts">
 import { defineComponent } from "vue";
 import { BasicForm, FormSchema, useForm } from "/@/components/Form/index";
+
 const schemas: FormSchema[] = [
   {
     field: "field1",
@@ -708,6 +722,41 @@ const schemas: FormSchema[] = [
     },
     dynamicDisabled: ({ values }) => {
       return !!values.field7;
+    },
+  },
+  {
+    field: "field4",
+    component: "DatePicker",
+    label: "字段4",
+    colProps: {
+      span: 8,
+    },
+    dynamicDisabled: ({ values }) => {
+      return !!values.field7;
+    },
+  },
+  {
+    field: "field5",
+    component: "Input",
+    label: "字段5",
+    colProps: {
+      span: 8,
+    },
+  },
+  {
+    field: "field6",
+    component: "Input",
+    label: "字段6",
+    colProps: {
+      span: 8,
+    },
+  },
+  {
+    field: "field7",
+    component: "Input",
+    label: "字段7",
+    colProps: {
+      span: 8,
     },
   },
 ];

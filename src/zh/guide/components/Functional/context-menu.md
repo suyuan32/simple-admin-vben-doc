@@ -20,10 +20,9 @@ author: Ryan SU
 <script lang="ts">
 import { defineComponent } from "vue";
 import { useContextMenu } from "/@/hooks/web/useContextMenu";
-import { CollapseContainer } from "/@/components/Container";
 import { useMessage } from "/@/hooks/web/useMessage";
+
 export default defineComponent({
-  components: { CollapseContainer },
   setup() {
     const [createContextMenu] = useContextMenu();
     const { createMessage } = useMessage();

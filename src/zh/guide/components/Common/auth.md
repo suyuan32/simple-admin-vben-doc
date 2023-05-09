@@ -12,16 +12,24 @@ author: Ryan SU
 ```vue
 <template>
   <div>
-    <Authority :value="RoleEnum.ADMIN">
+    <Authority :value="RoleEnum.SUPER">
       <a-button type="primary" block> 只有admin角色可见 </a-button>
     </Authority>
   </div>
 </template>
-<script>
+
+<script lang="ts">
 import { Authority } from "/@/components/Authority";
 import { defineComponent } from "vue";
+import { RoleEnum } from "/@/enums/roleEnum";
+
 export default defineComponent({
   components: { Authority },
+  setup() {
+    return {
+      RoleEnum,
+    };
+  },
 });
 </script>
 ```

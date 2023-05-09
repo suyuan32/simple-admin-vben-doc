@@ -14,34 +14,35 @@ author: Ryan SU
   <div class="p-4 virtual-scroll-demo">
     <Divider>基础滚动示例</Divider>
     <div class="virtual-scroll-demo-wrap">
-      <VirtualScroll :itemHeight="41" :items="data" :height="300" :width="300">
-        <template v-slot="{ item }">
+      <VScroll :itemHeight="41" :items="data" :height="300" :width="300">
+        <template #default="{ item }">
           <div class="virtual-scroll-demo__item">{{ item.title }}</div>
         </template>
-      </VirtualScroll>
+      </VScroll>
     </div>
 
     <Divider>即使不可见，也预先加载50条数据，防止空白</Divider>
     <div class="virtual-scroll-demo-wrap">
-      <VirtualScroll
+      <VScroll
         :itemHeight="41"
         :items="data"
         :height="300"
         :width="300"
         :bench="50"
       >
-        <template v-slot="{ item }">
+        <template #default="{ item }">
           <div class="virtual-scroll-demo__item">{{ item.title }}</div>
         </template>
-      </VirtualScroll>
+      </VScroll>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { VirtualScroll } from "/@/components/VirtualScroll/index";
+import { VScroll } from "/@/components/VirtualScroll/index";
 
 import { Divider } from "ant-design-vue";
+
 const data: any[] = (() => {
   const arr: any[] = [];
   for (let index = 1; index < 20000; index++) {
@@ -52,7 +53,7 @@ const data: any[] = (() => {
   return arr;
 })();
 export default defineComponent({
-  components: { VirtualScroll, Divider },
+  components: { VScroll, Divider },
   setup() {
     return { data: data };
   },
@@ -62,16 +63,16 @@ export default defineComponent({
 .virtual-scroll-demo {
   &-wrap {
     display: flex;
+    justify-content: center;
     margin: 0 30%;
     background: #fff;
-    justify-content: center;
   }
 
   /deep/ &__item {
     height: 40px;
     padding: 0 20px;
-    line-height: 40px;
     border-bottom: 1px solid #ddd;
+    line-height: 40px;
   }
 }
 </style>

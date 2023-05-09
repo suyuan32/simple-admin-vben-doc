@@ -22,9 +22,10 @@ Used to wrap page components
     </PageWrapper>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { PageWrapper } from "/@/components/Page";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { PageWrapper },
   setup() {

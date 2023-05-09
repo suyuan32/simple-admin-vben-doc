@@ -20,30 +20,14 @@ excel 导入导出操作
   </ImpExcel>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent } from "vue";
 import { ImpExcel, ExcelData } from "/@/components/Excel";
+
 export default defineComponent({
   components: { ImpExcel },
   setup() {
     function loadDataSuccess(excelDataList: ExcelData[]) {
-      tableListRef.value = [];
       console.log(excelDataList);
-      for (const excelData of excelDataList) {
-        const {
-          header,
-          results,
-          meta: { sheetName },
-        } = excelData;
-        const columns: BasicColumn[] = [];
-        for (const title of header) {
-          columns.push({ title, dataIndex: title });
-        }
-        tableListRef.value.push({
-          title: sheetName,
-          dataSource: results,
-          columns,
-        });
-      }
     }
     return {
       loadDataSuccess,

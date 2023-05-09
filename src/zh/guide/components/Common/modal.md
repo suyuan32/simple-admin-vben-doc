@@ -20,10 +20,10 @@ author: Ryan SU
 :::
 
 ```vue
-// Modal.vue
 <template>
   <BasicModal
     v-bind="$attrs"
+    :visible="true"
     title="Modal Title"
     :helpMessage="['提示1', '提示2']"
   >
@@ -33,6 +33,7 @@ author: Ryan SU
 <script lang="ts">
 import { defineComponent } from "vue";
 import { BasicModal } from "/@/components/Modal";
+
 export default defineComponent({
   components: { BasicModal },
   setup() {

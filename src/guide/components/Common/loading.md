@@ -22,9 +22,12 @@ author: Ryan SU
 <script lang="ts">
 import { defineComponent, reactive, toRefs, ref } from "vue";
 import { Loading } from "/@/components/Loading";
+
 export default defineComponent({
   components: { Loading },
   setup() {
+    const loadingRef = ref<boolean>(false);
+
     const compState = reactive({
       absolute: false,
       loading: false,
@@ -51,6 +54,7 @@ export default defineComponent({
       openCompFullLoading,
       openCompAbsolute,
       ...toRefs(compState),
+      loadingRef,
     };
   },
 });

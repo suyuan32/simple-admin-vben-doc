@@ -21,12 +21,13 @@ icon 的值可以在 [Iconify](https://iconify.design) 或 [Netlify](https://ico
 
 ```vue
 <template>
-  <Icon icon="gg:loadbar-doc"></Icon>
+  <Icon icon="gg:loadbar-doc" color="red" />
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from "vue";
 import { Icon } from "/@/components/Icon";
+
 export default defineComponent({
   components: { Icon },
 });

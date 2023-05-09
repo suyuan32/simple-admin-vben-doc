@@ -11,7 +11,7 @@ author: Ryan SU
 
 ```vue
 <template>
-  <Time :value="time" />
+  <Time :value="time" style="color: red" />
 </template>
 <script lang="ts">
 import { defineComponent, reactive, toRefs } from "vue";

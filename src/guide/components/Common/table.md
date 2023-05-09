@@ -21,10 +21,10 @@ Encapsulate the table component of `antv`
       titleHelpMessage="温馨提醒"
       :columns="columns"
       :dataSource="data"
-      :canResize="canResize"
-      :loading="loading"
-      :striped="striped"
-      :bordered="border"
+      :canResize="true"
+      :loading="false"
+      :striped="false"
+      :bordered="true"
       :pagination="{ pageSize: 20 }"
     >
       <template #toolbar>
@@ -34,16 +34,22 @@ Encapsulate the table component of `antv`
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import { BasicTable } from "/@/components/Table";
-import { getBasicColumns, getBasicData } from "./tableData";
+import { defineComponent } from "vue";
+import { BasicColumn, BasicTable } from "/@/components/Table";
 
 export default defineComponent({
   components: { BasicTable },
   setup() {
     return {
-      columns: getBasicColumns(),
-      data: getBasicData(),
+      columns: [
+        {
+          title: "ID",
+          dataIndex: "id",
+          width: 200,
+          align: "left",
+        },
+      ] as BasicColumn[],
+      data: [{ id: 1 }],
     };
   },
 });

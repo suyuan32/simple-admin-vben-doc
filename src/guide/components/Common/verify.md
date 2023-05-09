@@ -18,22 +18,20 @@ Drag check component
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, ref } from "vue";
-import {
-  BasicDragVerify,
-  DragVerifyActionType,
-  PassingData,
-} from "/@/components/Verify/index";
+import { defineComponent } from "vue";
+import { BasicDragVerify, PassingData } from "/@/components/Verify/index";
+import { useMessage } from "/@/hooks/web/useMessage";
+
 export default defineComponent({
   components: { BasicDragVerify },
   setup() {
+    const { createMessage } = useMessage();
     function handleSuccess(data: PassingData) {
       const { time } = data;
       createMessage.success(`校验成功,耗时${time}秒`);
     }
     return {
       handleSuccess,
-      handleBtnClick,
     };
   },
 });

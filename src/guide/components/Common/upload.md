@@ -22,10 +22,12 @@ File upload component
 import { defineComponent } from "vue";
 import { BasicUpload } from "/@/components/Upload";
 import { uploadApi } from "/@/api/sys/upload";
+import { useMessage } from "/@/hooks/web/useMessage";
 
 export default defineComponent({
   components: { BasicUpload },
   setup() {
+    const { createMessage } = useMessage();
     return {
       uploadApi,
       handleChange: (list: string[]) => {

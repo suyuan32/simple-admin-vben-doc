@@ -24,12 +24,12 @@ Encapsulate the Descriptions component of `antv`
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Alert } from "ant-design-vue";
 import {
   Description,
   DescItem,
   useDescription,
 } from "/@/components/Description/index";
+
 const mockData: any = {
   username: "test",
   nickName: "VB",
@@ -67,7 +67,7 @@ const schema: DescItem[] = [
   },
 ];
 export default defineComponent({
-  components: { Description, Alert },
+  components: { Description },
   setup() {
     const [register] = useDescription({
       title: "useDescription",

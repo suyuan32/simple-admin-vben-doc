@@ -15,13 +15,13 @@ json data preview component
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { JsonPreview } from "/@/components/CodeEditor";
+import { JsonPreview } from "/@/components/JsonPreview";
 
 export default defineComponent({
   components: { JsonPreview },
   setup() {
     return {
-      data: {},
+      data: { hello: "world" },
     };
   },
 });

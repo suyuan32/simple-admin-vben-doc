@@ -20,9 +20,10 @@ Used to display the title, you can display the help button and text.
     <BasicTitle :helpMessage="['提示1', '提示2']">标题</BasicTitle>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { BasicTitle } from "/@/components/Basic/index";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { BasicTitle },
 });
@@ -55,9 +56,10 @@ Animated arrow component.
     <BasicArrow :expand="false" />
   </div>
 </template>
-<script>
+<script lang="ts">
 import { BasicArrow } from "/@/components/Basic/index";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { BasicArrow },
 });
@@ -86,9 +88,10 @@ Help button component.
     <BasicHelp text="提示" />
   </div>
 </template>
-<script>
+<script lang="ts">
 import { BasicHelp } from "/@/components/Basic/index";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   components: { BasicHelp },
 });

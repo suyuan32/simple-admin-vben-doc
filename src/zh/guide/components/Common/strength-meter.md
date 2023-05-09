@@ -27,7 +27,8 @@ author: Ryan SU
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import StrengthMeter from "/@/components/StrengthMeter/index";
+import { StrengthMeter } from "/@/components/StrengthMeter/index";
+
 export default defineComponent({
   components: {
     StrengthMeter,
@@ -37,8 +38,8 @@ export default defineComponent({
 <style lang="less" scoped>
 .demo-wrap {
   width: 50%;
-  background: #fff;
   border-radius: 10px;
+  background: #fff;
 }
 </style>
 ```

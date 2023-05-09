@@ -11,26 +11,25 @@ author: Ryan SU
 
 ```vue
 <template>
-  <BasicUpload
-    :maxSize="20"
-    :maxNumber="10"
-    @change="handleChange"
-    :api="uploadApi"
-  />
+  <div class="p-10">
+    <BasicDragVerify @success="handleSuccess" />
+  </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
-import { BasicUpload } from "/@/components/Upload";
-import { uploadApi } from "/@/api/sys/upload";
+import { BasicDragVerify, PassingData } from "/@/components/Verify/index";
+import { useMessage } from "/@/hooks/web/useMessage";
 
 export default defineComponent({
-  components: { BasicUpload },
+  components: { BasicDragVerify },
   setup() {
+    const { createMessage } = useMessage();
+    function handleSuccess(data: PassingData) {
+      const { time } = data;
+      createMessage.success(`校验成功,耗时${time}秒`);
+    }
     return {
-      uploadApi,
-      handleChange: (list: string[]) => {
-        createMessage.info(`已上传文件${JSON.stringify(list)}`);
-      },
+      handleSuccess,
     };
   },
 });
