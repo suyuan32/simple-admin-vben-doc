@@ -101,7 +101,7 @@ pnpm -v # 出现对应版本号即代表安装成功
 
 ```bash
 # 安装依赖
-pnpm i
+pnpm install
 ```
 
 ### imagemin 依赖安装失败解决方法

@@ -98,7 +98,7 @@ In the project's root directory, open a command prompt and execute the following
 
 ```bash
 # install dependencies
-pnpm i
+pnpm install
 ```
 
 ### Troubleshooting imagemin Dependency Installation Failure
