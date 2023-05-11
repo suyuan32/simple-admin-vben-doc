@@ -5,7 +5,7 @@ icon: home
 title: Index
 heroImage: /logo.svg
 heroText: Vben UI
-tagline: Simple Admin UI is a modern UI for Simple Admin. It is based on vue-vben-admin and supports several advanced features. It can help you developing a distributed backend management system in a short time.
+tagline: Simple Admin Vben UI is a modern UI for Simple Admin. It is based on vue-vben-admin and supports several advanced features. It can help you developing a distributed backend management system in a short time.
 
 actions:
 

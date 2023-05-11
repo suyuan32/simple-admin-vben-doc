@@ -5,7 +5,7 @@ icon: home
 title: 主页
 heroImage: /logo.svg
 heroText: Vben UI
-tagline: Simple Admin UI 是基于 vue-vben-admin 二次开发的为 Simple Admin 专门开发的后台管理界面，基于 Vue3 和 TypeScript 开发， 提供后台错误统一处理，国际化等功能，本项目完全免费，可用于学习和商用
+tagline: Simple Admin Vben UI 是基于 vue-vben-admin 二次开发的为 Simple Admin 专门开发的后台管理界面，基于 Vue3 和 TypeScript 开发， 提供后台错误统一处理，国际化等功能，本项目完全免费，可用于学习和商用
 actions:
 
 - text: 快速开始 💡

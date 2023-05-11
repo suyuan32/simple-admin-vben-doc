@@ -7,12 +7,12 @@ export default defineUserConfig({
   locales: {
     "/": {
       lang: "en-US",
-      title: "Simple Admin",
+      title: "Simple Admin Vben UI",
       description: "The document website for simple admin.",
     },
     "/zh/": {
       lang: "zh-CN",
-      title: "Simple Admin",
+      title: "Simple Admin Vben UI",
       description: "Simple Admin的文档网站",
     },
   },
