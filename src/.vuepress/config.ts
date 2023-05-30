@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
+import { searchPlugin } from "@vuepress/plugin-search";
 
 export default defineUserConfig({
   base: "/",
@@ -31,5 +32,19 @@ export default defineUserConfig({
       },
     ],
     ["script", {}, `LA.init({id:"K3gnk5EG7pRuEa1k",ck:"K3gnk5EG7pRuEa1k"})`],
+  ],
+
+  plugins: [
+    // search
+    searchPlugin({
+      locales: {
+        "/": {
+          placeholder: "Search",
+        },
+        "/zh/": {
+          placeholder: "搜索",
+        },
+      },
+    }),
   ],
 });
