@@ -62,7 +62,7 @@ Password: simple-admin
 
 ## Documentation
 
-[Simple Admin Document](https://doc.ryansu.pro)
+[Simple Admin Document](https://doc.ryansu.tech)
 
 - go-zero
   [Document](https://go-zero.dev/)
@@ -79,7 +79,7 @@ Password: simple-admin
 
 ## Quick Start
 
-[Quick Start Document](https://doc.ryansu.pro/en/guide/basic-config/env_setting.html)
+[Quick Start Document](https://doc.ryansu.tech/en/guide/basic-config/env_setting.html)
 
 ## Change Log
 

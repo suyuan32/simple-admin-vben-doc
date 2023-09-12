@@ -31,6 +31,6 @@ features:
 - title: 强大的生成工具
   icon: fa-solid fa-screwdriver-wrench
   details: Simple Admin Tool 提供强大的代码生成功能，快速生成网页端代码
-  link: https://doc.ryansu.pro/zh/guide/quick-start/codegen/web_codegen.html
+  link: https://doc.ryansu.tech/zh/guide/quick-start/codegen/web_codegen.html
 
 footer: MIT 协议 版权所有 © 2022-present Ryan SU

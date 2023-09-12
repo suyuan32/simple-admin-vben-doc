@@ -32,6 +32,6 @@ features:
 - title: Powerful Generation Tools
   icon: fa-solid fa-screwdriver-wrench
   details: Simple Admin Tool provides powerful code generation function to quickly generate web page codes
-  link: https://doc.ryansu.pro/guide/quick-start/codegen/web_codegen.html
+  link: https://doc.ryansu.tech/guide/quick-start/codegen/web_codegen.html
 
 footer: MIT License Copyright © 2022-present Ryan SU

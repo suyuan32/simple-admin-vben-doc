@@ -24,7 +24,7 @@ export const zhNavbar = navbar([
       {
         text: "Ent 中文文档",
         icon: "fa-solid fa-book",
-        link: "https://ent.ryansu.pro/#/",
+        link: "https://ent.ryansu.tech/#/",
       },
       {
         text: "Go Zero 文档",
