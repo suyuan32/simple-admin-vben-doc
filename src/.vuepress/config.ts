@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress";
 import theme from "./theme.js";
+import { cut } from "@node-rs/jieba";
 import { searchProPlugin } from "vuepress-plugin-search-pro";
 
 export default defineUserConfig({
@@ -31,24 +32,25 @@ export default defineUserConfig({
         src: "//sdk.51.la/js-sdk-pro.min.js",
       },
     ],
-    ["script", {}, `LA.init({id:"K3gnk5EG7pRuEa1k",ck:"K3gnk5EG7pRuEa1k"})`],
+    ["script", {}, `LA.init({id:"KBk8CaLJkenDGgqp",ck:"KBk8CaLJkenDGgqp"})`],
   ],
 
   plugins: [
     searchProPlugin({
       // 索引全部内容
       indexContent: true,
-      // 为分类和标签添加索引
-      customFields: [
-        {
-          getter: (page) => page.frontmatter.category,
-          formatter: "分类：$content",
+      indexLocaleOptions: {
+        "/zh/": {
+          // 使用 nodejs-jieba 进行分词
+          tokenize: (text, fieldName) =>
+            fieldName === "id" ? [text] : cut(text, true),
         },
-        {
-          getter: (page) => page.frontmatter.tag,
-          formatter: "标签：$content",
+      },
+      locales: {
+        "/zh/": {
+          placeholder: " 开始搜索",
         },
-      ],
+      },
     }),
   ],
 });
