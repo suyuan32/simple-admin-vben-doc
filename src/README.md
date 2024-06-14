@@ -10,11 +10,11 @@ tagline: Simple Admin Vben UI is a modern UI for Simple Admin. It is based on vu
 actions:
 
 - text: Quick Start 💡
-  link: /guide/tutorial
+  link: /guide/tutorial/README.md
   type: primary
 
 - text: Components
-  link: /guide/components
+  link: /guide/components/README.md
 
 - text: GitHub
   link: https://github.com/suyuan32/simple-admin-backend-ui

@@ -9,11 +9,11 @@ tagline: Simple Admin Vben UI 是基于 vue-vben-admin 二次开发的为 Simple
 actions:
 
 - text: 快速开始 💡
-  link: /zh/guide/tutorial
+  link: /zh/guide/tutorial/README.md
   type: primary
 
 - text: 组件
-  link: /zh/guide/components
+  link: /zh/guide/components/README.md
 
 - text: GitHub
   link: https://github.com/suyuan32/simple-admin-backend-ui
