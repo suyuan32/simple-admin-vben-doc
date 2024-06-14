@@ -34,23 +34,4 @@ export default defineUserConfig({
     ],
     ["script", {}, `LA.init({id:"KBk8CaLJkenDGgqp",ck:"KBk8CaLJkenDGgqp"})`],
   ],
-
-  plugins: [
-    searchProPlugin({
-      // 索引全部内容
-      indexContent: true,
-      indexLocaleOptions: {
-        "/zh/": {
-          // 使用 nodejs-jieba 进行分词
-          tokenize: (text, fieldName) =>
-            fieldName === "id" ? [text] : cut(text, true),
-        },
-      },
-      locales: {
-        "/zh/": {
-          placeholder: " 开始搜索",
-        },
-      },
-    }),
-  ],
 });

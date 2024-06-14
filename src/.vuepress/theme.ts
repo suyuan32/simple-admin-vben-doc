@@ -1,6 +1,7 @@
 import { hopeTheme } from "vuepress-theme-hope";
 import { enNavbar, zhNavbar } from "./navbar/index.js";
 import { enSidebar, zhSidebar } from "./sidebar/index.js";
+import { cut } from "@node-rs/jieba";
 
 export default hopeTheme({
   hostname: "https://vben.ryansu.tech",
@@ -10,13 +11,15 @@ export default hopeTheme({
     url: "https://github.com/suyuan32",
   },
 
-  iconAssets: "fontawesome",
+  iconAssets: "iconify",
 
   logo: "/logo.svg",
 
   repo: "suyuan32/simple-admin-vben-doc",
 
   docsDir: "src",
+
+  breadcrumb: false,
 
   pageInfo: ["Author", "Original", "Date", "Category", "Tag", "ReadingTime"],
 
@@ -92,28 +95,53 @@ export default hopeTheme({
     //   serverURL: "https://vuepress-theme-hope-comment.vercel.app",
     // },
 
-    // Disable features you don’t want here
+    // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,
       attrs: true,
-      chart: true,
+      component: true,
+
+      // install chart.js before enabling it
+      // chart: true,
+
       codetabs: true,
-      container: true,
       demo: true,
-      echarts: true,
+
+      // install echarts before enabling it
+      // echarts: true,
+
       figure: true,
-      flowchart: true,
-      gfm: true,
+
+      // install flowchart.ts before enabling it
+      // flowchart: true,
+
+      // gfm requires mathjax-full to provide tex support
+      // gfm: true,
+
       imgLazyload: true,
       imgSize: true,
       include: true,
-      katex: true,
+
+      // install katex before enabling it
+      // katex: true,
+
+      // install mathjax-full before enabling it
+      // mathjax: true,
+
       mark: true,
-      mermaid: true,
+
+      // install mermaid before enabling it
+      // mermaid: true,
+
       playground: {
         presets: ["ts", "vue"],
       },
-      presentation: ["highlight", "math", "search", "notes", "zoom"],
+
+      // install reveal.js before enabling it
+      // revealJs: {
+      //   plugins: ["highlight", "math", "search", "notes", "zoom"],
+      // },
+
       stylize: [
         {
           matcher: "Recommended",
@@ -131,7 +159,30 @@ export default hopeTheme({
       sup: true,
       tabs: true,
       vPre: true,
-      vuePlayground: true,
+
+      // install @vue/repl before enabling it
+      // vuePlayground: true,
+    },
+
+    components: {
+      components: ["BiliBili"],
+    },
+
+    searchPro: {
+      // 索引全部内容
+      indexContent: true,
+      indexLocaleOptions: {
+        "/zh/": {
+          // 使用 nodejs-jieba 进行分词
+          tokenize: (text, fieldName) =>
+            fieldName === "id" ? [text] : cut(text, true),
+        },
+      },
+      locales: {
+        "/zh/": {
+          placeholder: " 开始搜索",
+        },
+      },
     },
 
     // uncomment these if you want a pwa

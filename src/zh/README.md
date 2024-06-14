@@ -24,12 +24,12 @@ actions:
 features:
 
 - title: 完善的后台管理功能
-  icon: fa-solid fa-wrench
+  icon: fluent:card-ui-20-filled
   details: 提供丰富的后台管理功能
-  link: http://101.132.124.135/
+  link: http://101.132.124.135:8080/
 
 - title: 强大的生成工具
-  icon: fa-solid fa-screwdriver-wrench
+  icon: fa-solid:tools
   details: Simple Admin Tool 提供强大的代码生成功能，快速生成网页端代码
   link: https://doc.ryansu.tech/zh/guide/quick-start/codegen/web_codegen.html
 
