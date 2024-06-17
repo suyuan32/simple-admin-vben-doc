@@ -27,7 +27,7 @@ features:
 - title: Fully Support Various Managements
   icon: fluent:card-ui-20-filled
   details: Provide rich background management functions
-  link: http://101.132.124.135:8080/
+  link: https://preview.ryansu.tech/
 
 - title: Powerful Generation Tools
   icon: fa-solid:tools
